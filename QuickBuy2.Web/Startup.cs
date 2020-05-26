@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using QuickBuy2.Dominio.Contratos;
 using QuickBuy2.Repositorio.Contexto;
+using QuickBuy2.Repositorio.Repositorios;
 
 namespace QuickBuy2.Web
 {
@@ -36,7 +38,7 @@ namespace QuickBuy2.Web
                                                         option.UseLazyLoadingProxies()
                                                         .UseMySql(connectionString,
                                                                             m => m.MigrationsAssembly("QuickBuy2.Repositorio")));
-                                                                
+            services.AddScoped<IProdutoRespositorio, ProdutoRepositorio>();                                                                
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
