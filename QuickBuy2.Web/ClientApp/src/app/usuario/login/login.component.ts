@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Usuario } from '../../model/usuario';
 
 @Component({
     selector: 'app-login',
@@ -7,5 +8,15 @@ import { Component } from '@angular/core';
 })
 
 export class LoginComponent {
+    public usuario: Usuario;
+
+    constructor() {
+        this.usuario = new Usuario();
+    }
+
+
+    entrar(): void {
+        alert('clicou no botão');
+    }
 
 }
