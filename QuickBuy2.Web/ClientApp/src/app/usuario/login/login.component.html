@@ -2,7 +2,7 @@
   <form class="form-signin">
     <h1 class="h4 mb-2 login">Login do Cliente</h1>
     <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" [(ngModel)]="usuario.Nome" id="inputEmail" name="email" placeholder="Informe do seu Email"
+    <input type="email" [(ngModel)]="usuario.email" id="inputEmail" name="email" placeholder="Informe do seu Email"
            class="form-control mb-2"
            [ngClass]="{
             'is-invalid': email.invalid && (email.durty || email.touched),
@@ -21,7 +21,7 @@
     </div>
 
     <label for="inputSenha" class="sr-only">Senha</label>
-    <input type="password" [(ngModel)]="usuario.Senha" id="inputSenha" name="senha" placeholder="Informe sua Senha"
+    <input type="password" [(ngModel)]="usuario.senha" id="inputSenha" name="senha" placeholder="Informe sua Senha"
            class="form-control mb-3"
            [ngClass]="{
             'is-invalid': senha.invalid && (senha.durty || senha.touched),
@@ -40,6 +40,6 @@
 
 
     <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">Entrar</button>
-    {{usuario.Nome + ' - ' + usuario.Senha}}
+    
   </form>
 </div>
