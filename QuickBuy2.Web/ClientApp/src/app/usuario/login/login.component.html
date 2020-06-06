@@ -40,6 +40,9 @@
 
 
     <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">Entrar</button>
-    
+
+    <div class="alert alert-danger" style="margin-top:20px;" *ngIf="mensagem">
+      {{mensagem}}
+    </div>
   </form>
 </div>
