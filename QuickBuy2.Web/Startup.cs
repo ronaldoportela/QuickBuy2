@@ -38,7 +38,8 @@ namespace QuickBuy2.Web
                                                         option.UseLazyLoadingProxies()
                                                         .UseMySql(connectionString,
                                                                             m => m.MigrationsAssembly("QuickBuy2.Repositorio")));
-            services.AddScoped<IProdutoRespositorio, ProdutoRepositorio>();                                                                
+            services.AddScoped<IProdutoRespositorio, ProdutoRepositorio>();
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
