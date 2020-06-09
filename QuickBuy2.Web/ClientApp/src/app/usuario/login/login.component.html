@@ -2,7 +2,7 @@
   <form class="form-signin">
     <h1 class="h4 mb-2 login">Login do Cliente</h1>
     <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" [(ngModel)]="usuario.email" id="inputEmail" name="email" placeholder="Informe do seu Email"
+    <input type="email" [(ngModel)]="usuario.email" id="inputEmail" name="email" placeholder="Informe o seu Email"
            class="form-control mb-2"
            [ngClass]="{
             'is-invalid': email.invalid && (email.durty || email.touched),
@@ -43,6 +43,8 @@
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativarSpinner"></span>
       Entrar
     </button>
+
+    <div>Novo por aqui ? <a [routerLink]='["/novo-usuario"]'> Cadastre-se</a></div>
 
     <div class="alert alert-danger" style="margin-top:20px;" *ngIf="mensagem">
       {{mensagem}}
