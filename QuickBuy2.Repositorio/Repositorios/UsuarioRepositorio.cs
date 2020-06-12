@@ -18,5 +18,10 @@ namespace QuickBuy2.Repositorio.Repositorios
         {
             return QuickBuyContexto.usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
         }
+
+        public Usuario Obter(string email)
+        {
+            return QuickBuyContexto.usuarios.FirstOrDefault(u => u.Email == email);
+        }
     }
 }
