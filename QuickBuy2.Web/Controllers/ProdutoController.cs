@@ -37,7 +37,7 @@ namespace QuickBuy2.Web.Controllers
         {
             try
             {
-               return Ok(_produtoRespositorio.ObterTodos());
+               return Json(_produtoRespositorio.ObterTodos());
             }
             catch (Exception ex)
             {

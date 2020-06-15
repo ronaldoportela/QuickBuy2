@@ -24,16 +24,16 @@ export class ProdutoComponent implements OnInit {
     }
 
     public Cadastrar() {
-        this.ativar_spinner = true;
+        this.ativarEspera();
         this.produtoServico.cadastrar(this.produto)
             .subscribe(
                 produtoJson => {
                     console.log(produtoJson);
-                    this.ativar_spinner = false;
+                    this.desativarEspera();
                 },
                 e => {
                     console.log(e.error);
-                    this.ativar_spinner = false;
+                    this.desativarEspera();
                     this.mensagem = e.error;
                 }
             );
@@ -55,6 +55,14 @@ export class ProdutoComponent implements OnInit {
                     this.ativar_spinner = false;
 
                 });
+    }
+
+
+    public ativarEspera() {
+        this.ativar_spinner = true;
+    }
+    public desativarEspera() {
+        this.ativar_spinner = false;
     }
     
 }
