@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProdutoServico } from '../servicos/produto/produto.servico';
 import { Produto } from '../model/produto';
 import { Router } from '@angular/router';
@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
     styleUrls:['./produto.component.css']
 })
 
-export class ProdutoComponent implements OnInit {
-
+export class ProdutoComponent implements OnInit, OnDestroy {
+   
     public produto: Produto;
     public arquivoSelecionado: File;
     public ativar_spinner: boolean;
@@ -24,7 +24,15 @@ export class ProdutoComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.produto = new Produto();
+        var produtoSession = sessionStorage.getItem("produtoSession");
+        if (produtoSession) {
+            this.produto = JSON.parse(produtoSession);
+        }
+        else {
+            this.produto = new Produto();
+
+        }
+
     }
 
     public Cadastrar() {
@@ -68,6 +76,11 @@ export class ProdutoComponent implements OnInit {
     }
     public desativarEspera() {
         this.ativar_spinner = false;
+    }
+
+    ngOnDestroy(): void {
+        //limpa a session produtoSession caso ela esteja preenchida
+        sessionStorage.setItem("produtoSession", "");
     }
     
 }

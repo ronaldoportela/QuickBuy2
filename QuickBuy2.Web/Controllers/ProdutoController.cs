@@ -55,12 +55,38 @@ namespace QuickBuy2.Web.Controllers
                 {
                     return BadRequest(produto.ObterMensagensValidacao());
                 }
-                _produtoRespositorio.Adicionar(produto);
+
+                if (produto.Id > 0)
+                {
+                    _produtoRespositorio.Atualizar(produto);
+                }
+                else
+                {
+                    _produtoRespositorio.Adicionar(produto);
+
+                }
+                //tava  151 aos 7:20
+                //return ("api/produto", produto);
                 return Ok(produto);
 
             }
             catch (Exception ex)
             {
+                return BadRequest(ex.ToString());
+            }
+        }
+        
+        [HttpPost("Deletar")]
+        public IActionResult Deletar([FromBody] Produto produto) 
+        {
+            try
+            {
+                _produtoRespositorio.Remover(produto);
+                return Json(_produtoRespositorio.ObterTodos());
+            }
+            catch (Exception ex)
+            {
+
                 return BadRequest(ex.ToString());
             }
         }

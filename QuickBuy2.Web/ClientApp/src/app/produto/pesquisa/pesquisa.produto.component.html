@@ -20,9 +20,9 @@
       <td>{{p.nome}}</td>
       <td>{{p.descricao}}</td>
       <td style="width:10%">R$ {{p.preco}}</td>
-      <td style="width:10%"><img src="arquivos/{{p.nomeArquivo}}" style="width:85%"  /></td>
-      <td><a href="#">Editar</a></td>
-      <td><a href="#">Deletar</a></td>
+      <td style="width:10%"><img src="arquivos/{{p.nomeArquivo}}" style="width:50%"  /></td>
+      <td><button class="btn btn-success btn-sm" (click)="editarProduto(p)">Editar</button></td>
+      <td><button class="btn btn-danger btn-sm" (click)="deletarProduto(p)">Deletar</button></td>
     </tr>
   </tbody>
 </table>

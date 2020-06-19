@@ -38,4 +38,24 @@ export class PesquisaProdutoComponent implements OnInit {
         this.router.navigate(['/produto']);
     }
 
+    public deletarProduto(produto: Produto) {
+        var retorno = confirm("Deseja realmente deletar o produto selecionado ?");
+        if (retorno == true) {
+            this.produtoServico.deletar(produto)
+                .subscribe(
+                    produto => {
+                      this.produtos = produto;
+                },
+                    e => {
+                        console.log(e.error);
+                    })
+        }
+
+    }
+
+    public editarProduto(produto: Produto) {
+        sessionStorage.setItem('produtoSession', JSON.stringify(produto));
+        this.router.navigate(['/produto']);
+    }
+
 }
