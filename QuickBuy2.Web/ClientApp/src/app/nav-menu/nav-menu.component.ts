@@ -37,6 +37,11 @@ export class NavMenuComponent {
                 
     }
 
+    public usuario_adminstrador(): boolean {
+        return this.usuarioServico.usuario_administrador();
+    }
+
+
     public sair() {
         //sessionStorage.setItem('usuario-autenticado', '');
         this.usuarioServico.limpar_sessao();
