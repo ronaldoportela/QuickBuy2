@@ -27,13 +27,13 @@
         <div class="card" style="width:95%;">
           <div class="card-header" style="text-align:center;">Resumo</div>
           <div class="card-body">
-            <table class="mb-4">
+            <table class="mb-4" style="width:100%">
               <tr style="border-bottom:1px dotted #808080;">
-                <td style="width:70%;font-weight:bold;">total:</td>
-                <td style="font-weight:bold;">R$ 1.300,00</td>
+                <td style="width:30%;font-weight:bold;">total:</td>
+                <td style="width:70%;font-weight:bold;text-align:right;">R$ {{ total | number:'1.0-2' }}</td>
               </tr>
             </table>
-            <button class="btn btn-danger">Efetivar Compra</button>
+            <button class="btn btn-danger" style="width:100%">Efetivar Compra</button>
           </div>
 
         </div>
