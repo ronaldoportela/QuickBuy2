@@ -18,6 +18,7 @@ import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { TruncateModule } from 'ng2-truncate';
 import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
 import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
+import { PedidoServico } from './servicos/pedido/pedido.servico';
 
 
 
@@ -52,7 +53,7 @@ import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
 
     ])
   ],
-    providers: [UsuarioServico, ProdutoServico],
+    providers: [UsuarioServico, ProdutoServico, PedidoServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

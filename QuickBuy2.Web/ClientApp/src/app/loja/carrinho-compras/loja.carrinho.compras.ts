@@ -1,7 +1,7 @@
 import { Produto } from "../../model/produto";
 
 export class LojaCarrinhoCompras {
-
+    
     public produtos: Produto[] = [];
 
     public adicionar(produto: Produto) {
@@ -24,6 +24,7 @@ export class LojaCarrinhoCompras {
         if (produtoLocalStorage) {
             return JSON.parse(produtoLocalStorage);
         }
+        return this.produtos; // testar se pode retornar new Produto[]
     }
 
     public removerProduto(produto: Produto) {
@@ -49,5 +50,9 @@ export class LojaCarrinhoCompras {
         //}
 
         return (itens.length > 0);
+    }
+
+    public limparCarrinhoCompras() {
+        localStorage.setItem("produtoLocalStorage", "");
     }
 }
